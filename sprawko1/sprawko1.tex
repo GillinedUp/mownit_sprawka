@@ -20,7 +20,7 @@
   \maketitle
   \paragraph{Zadanie 1 Sumowanie liczb pojedynczej precyzji}\mbox{}\vspace{3mm}\\
   \emph{Zwykły algorytm sumowania}
-  \begin{Verbatim}[fontsize=\footnotesize]
+  \begin{Verbatim}
   float[] ar = new float[10000000];
   float v = 0.53125f;
   for (int i = 0; i < ar.length; i++) {
@@ -40,7 +40,7 @@
   cechy. \\
   Poniżej przedstawiamy wykres który pokazuje zależność pomiędzy błędem
   bezwzględnym a ilością iteracji wykonanych przez program.\\
-  \includegraphics[width=0.9\textwidth]{img/Plot1} \\
+  \includegraphics[width=1\textwidth]{img/Plot1} \\
   Jak widzimy na wykresie, przy pierwszych $10^6$ iteracji nie mamy błędu.
   To jest związane z tym, że wielkość cechy jest wystarczają duża, a różnica
   między liczbami, które dodajemy, jest wystarczająco mała. Później błąd
@@ -48,7 +48,7 @@
   spowodowane tym, że z każdym dodawaniem mylimy się na stałą liczbę, a suma
   rośnie, więc udział błędu w sumie jest co raz mniejszy.\vspace{3mm}\\
   \emph{Rekurencyjny algorytm dodawania}
-  \begin{Verbatim}[fontsize=\footnotesize]
+  \begin{Verbatim}
   public static float recSum(float[] ar, int a, int b) {
       if (a == b) return ar[a];
       if (b - a == 1) {
@@ -67,7 +67,7 @@
   wejściowych.
   \paragraph{Zadanie 2 Algorytm Kahana}\mbox{}\vspace{3mm}\\
   \emph{Implementacja algorytmu Kahana w języku Java}
-  \begin{Verbatim}[fontsize=\footnotesize]
+  \begin{Verbatim}
       float sum = 0.0f;
       float err = 0.0f;
       for (int i = 0; i < ar.length; i++) {
@@ -163,5 +163,71 @@
       & 7.2 & 0.9935270006616201 0.9935270006616198 & 0.9935270006616201 0.9935270006616198 \\ \cline{2-4}
       & 10 & 0.9990395075982718 0.9990395075982715 & 0.9990395075982718 0.9990395075982715 \\
       \hline
-  \end{tabularx} \vspace{3mm}\newline
+  \end{tabularx} \newline
+  % TODO: dodaj interpretacje
+  \paragraph{Zadanie 4 Błędy zaokrągleń i odwzorowanie logistyczne}\mbox{}\vspace{3mm}\\
+  Niżej podajemy kod programu w jezyku Julia, który rysuje diagram bifurkacyjny.
+  \begin{Verbatim}
+using Plots
+
+@everywhere function almostequal(a::Float64, b::Float64, epsilon::Float64)
+  return abs(a-b) <= epsilon
+end
+
+function calcarr(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
+  lambdaarr = collect(linspace(start, fin, p))
+  const iterconst = 50000
+  const epsilon = 1e-6
+  xarr = Array{Array{Float64,1},1}(p)
+  yarr = Array{Array{Float64,1},1}(p)
+  for j = 1:p
+    lambda = lambdaarr[j]
+    x = xa
+    xarr[j] = Array{Float64,1}(0)
+    yarr[j] = Array{Float64,1}(0)
+    for i = 1:iterconst
+      x = lambda*x*(1-x)
+    end
+    push!(yarr[j], x)
+    found = false
+    while !found
+      x = lambda*x*(1-x)
+      for y in yarr[j]
+        if almostequal(x, y, epsilon)
+          found = true
+          break
+        end
+      end
+      if !found
+        push!(yarr[j], x) # if not, add it to the array
+      end
+    end
+    push!(xarr[j], lambda)
+  end
+  return xarr, yarr
+end
+
+function plotdiag(x, y)
+  pyplot()
+  verts = [(0, 0.1), (0, 0)]
+  scatter(x, y, marker = (Shape(verts), 1, RGBA(0,0,0,0)), leg = false)
+end
+
+x,y = calcarr(0.5, p, 2.75)
+plotdiag(x, y)
+  \end{Verbatim}
+  Diagram bifurkacji: \newline
+  % TODO: dodaj diagram
+  % TODO: dodaj interpretacje
+  Dalej podajemy dwie części diagramu dla $x_0 = 0.5$ oraz $r = 4$. \vspace{3mm}\\
+  Użyto pojedynczej precyzji:\newline
+  \includegraphics[width=1\textwidth]{img/sp} \newline
+  Użyto podwójnej precyzji: \newline
+  \includegraphics[width=1\textwidth]{img/dp} \newline
+  Jak widzimy, diagram, który został wygenerowany przy użyciu podwójnej precyzji
+  wygląda 'gęstrzej'. Algorytm, który generuje dany diagram, najpierw szuka
+  pierwszego punktu, gdzie funkcja zbieża, a kolejne otrzymuje, porównując do
+  już otrzymanych. Kiedy używamy pojedynczej precyzji, nie możemy wykryć
+  niektrórych punktów, bo nie możemy rozróżnić dwóch bardzo bliskich siebie
+  punktów. Dla tego używając l.z. z podwójną precyzją dostajemy więcej punktów.
 \end{document}
