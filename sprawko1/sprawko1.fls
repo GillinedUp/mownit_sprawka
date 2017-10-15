@@ -124,6 +124,9 @@ INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/Plot1.png
 OUTPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.pdf
 INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/Plot1.png
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/Figure_1.png
+INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/Figure_1.png
+INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/Figure_1.png
 INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/sp.png
 INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/sp.png
 INPUT /home/yurii/projects/latex/mownit2_lab/sprawko1/img/sp.png

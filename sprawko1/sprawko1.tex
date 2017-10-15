@@ -57,6 +57,7 @@
       return recSum(ar, a, (b + a)/2) + recSum(ar, (b + a)/2 + 1, b);
   }
   \end{Verbatim}
+  Dla $v = 0.53125$: \newline
   Bezwzględny błąd: $ 0.0 \% $. \newline
   Względny błąd: $ 0.0 $. \newline
   Korzystając z rekurencyjnego algorytmu, nie dostaliśmy błędu. Ten algorytm
@@ -64,7 +65,9 @@
   więc przesunięcie cechy i, co za tym idzie, utrata precyzji nie występują.
   \newline
   Czas działania obu algorytmów jest mniej więcej taki sam dla różnych danych
-  wejściowych.
+  wejściowych. \newline
+  Algorytm rekurencyjny zwraca niezerowy błąd dla $v = 0.66667$. W tym przypadku,
+  bezwzględny błąd jest równy $ \sim 0.000075 \% $, względny zaś $ -0.5 $. \newline
   \paragraph{Zadanie 2 Algorytm Kahana}\mbox{}\vspace{3mm}\\
   \emph{Implementacja algorytmu Kahana w języku Java}
   \begin{Verbatim}
@@ -77,6 +80,9 @@
           sum = temp;
       }
   \end{Verbatim}
+  Bezwzględny błąd: $ 0.0 \%$. \\
+  Względny błąd: $ 0.0 $. \\
+  % TODO: Wyznacz bezwzględny i względny błąd obliczeń dla tych samych danych wejściowych jak w przypadku testów z Zadania 1.
   Algorytm Kahana działa w następujący sposób. Każdego razu jak dodajemy
   nową liczbę do ogólnej sumy ($sum + y$), obliczamy korektę ($err$),
   który stosujemy w następnej iteracji. Najpierw odejmujemy korektę $err$,
@@ -163,8 +169,27 @@
       & 7.2 & 0.9935270006616201 0.9935270006616198 & 0.9935270006616201 0.9935270006616198 \\ \cline{2-4}
       & 10 & 0.9990395075982718 0.9990395075982715 & 0.9990395075982718 0.9990395075982715 \\
       \hline
-  \end{tabularx} \newline
-  % TODO: dodaj interpretacje
+  \end{tabularx} \vspace{3mm}\newline
+  Porównując wyniki, otrzymane przy sumowaniu wsprzód z tymi wstecz i przy
+  użyciu pojedynczej precyzji, możemy zauważyć, że te drugie, w większości
+  przypadków, są nieco bliższe do tych, otrzymanych przy użyciu podwójnej
+  precyzji, a co z tego wychodzi -- dokładniejsze. Sumując wstecz, sumujemy
+  najpierw małe liczby między sobą. Składniki, które dodajemy do sumy, rosną
+  przy iteracji w pętli. W ten sposób zmniejszamy błąd zaokrąglenia. \\
+  Udowodnić powyższe twierdzenie można w następujący sposób. Niech $x, y, z$
+  będą l.z., przy czym $|x + y| < |y + z|$. W zależnosci od porządku, w którym
+  będziemy dodawać te liczby, dostaniemy dwa wyniki (z uwzględnieniem błędów):
+  $fl(fl(x + y) + z)$ i $fl(x + fl(y + z))$. \vspace{3mm}\\
+  $fl(fl(x + y) + z) = fl((x + y)(1 + e_1) + z) =
+  ((x + y)(1 + e_1) + z)(1 + e_2) =
+  (x + xe_1 + y + ye_1 + z)(1 + e_2) =
+  x + xe_1 + y + ye_1 + z + xe_2 + xe_1e_2 + ye_2 + ye_1e_2 + ze_2 =
+  x + y + z + e_1(x + y) + e_2(x + y + z) + e_1e_2(x + y)$ \vspace{3mm}\\
+  $fl(x + fl(y + z)) = fl(x + (y + z)(1 + e_3)) =
+  (x + (y + z)(1 + e_3))(1 + e_4) = (x + ye_3 + ze_3 + y + z)(e_4 + 1) =
+  xe_4 + e_3e_4y + e_3e_4z + e_4y + e_4z + x + e_3y + e_3z + y + z =
+  x + y + z + e_3(y + z) + e_4(x + y + z) + e_3e_4(y + z)$ \vspace{3mm}\\
+  $|x + y| < |y + z| \Rightarrow e_1e_2(x + y) < e_3e_4(y + z)$
   \paragraph{Zadanie 4 Błędy zaokrągleń i odwzorowanie logistyczne}\mbox{}\vspace{3mm}\\
   Niżej podajemy kod programu w jezyku Julia, który rysuje diagram bifurkacyjny.
   \begin{Verbatim}
@@ -199,7 +224,7 @@ function calcarr(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
         end
       end
       if !found
-        push!(yarr[j], x) # if not, add it to the array
+        push!(yarr[j], x)
       end
     end
     push!(xarr[j], lambda)
@@ -213,11 +238,14 @@ function plotdiag(x, y)
   scatter(x, y, marker = (Shape(verts), 1, RGBA(0,0,0,0)), leg = false)
 end
 
-x,y = calcarr(0.5, p, 2.75)
+x,y = calcarr(0.5, p, 1.0)
 plotdiag(x, y)
   \end{Verbatim}
-  Diagram bifurkacji: \newline
-  % TODO: dodaj diagram
+  Diagram bifurkacji:
+  % \newpage
+  % \includegraphics[angle=270,origin=c,height=0.8\textheight]{img/Figure_1} \newpage
+  \newline
+  \includegraphics[width=1\textwidth]{img/Figure_1} \newline
   % TODO: dodaj interpretacje
   Dalej podajemy dwie części diagramu dla $x_0 = 0.5$ oraz $r = 4$. \vspace{3mm}\\
   Użyto pojedynczej precyzji:\newline
@@ -229,5 +257,26 @@ plotdiag(x, y)
   pierwszego punktu, gdzie funkcja zbieża, a kolejne otrzymuje, porównując do
   już otrzymanych. Kiedy używamy pojedynczej precyzji, nie możemy wykryć
   niektrórych punktów, bo nie możemy rozróżnić dwóch bardzo bliskich siebie
-  punktów. Dla tego używając l.z. z podwójną precyzją dostajemy więcej punktów.
+  punktów. Dla tego używając l.z. z podwójną precyzją dostajemy więcej
+  punktów. \vspace{3mm}\\
+  Liczba iteracji ($n$) potrzebnych do osiągnięcia zera dla $r = 4$ i
+  różnych wartości $x_0$: \\
+  \begin{tabular}{ | l | l | }
+      \hline
+      $x_0$ & $n$ \\ \hline
+      0.0 & 0 \\ \hline
+      0.11111111 & 2659 \\ \hline
+      0.22222222 & 5 \\ \hline
+      0.33333334 & 2578 \\ \hline
+      0.44444445 & 2423 \\ \hline
+      0.5555556 & 1306 \\ \hline
+      0.6666667 & 2578 \\ \hline
+      0.7777778 & 5 \\ \hline
+      0.8888889 & 1892 \\ \hline
+      1.0 & 1 \\
+      \hline
+  \end{tabular} % \vspace{3mm}\newline
+  % TODO: dodaj interpretacje
+
 \end{document}
+\grid

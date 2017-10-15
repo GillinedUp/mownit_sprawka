@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1507921406 "sprawko1.tex" "/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.pdf" "sprawko1" 1507921407
+["pdflatex"] 1508063257 "sprawko1.tex" "/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.pdf" "sprawko1" 1508063259
   "/etc/texmf/web2c/texmf.cnf" 1500980154 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.aux" 1507921407 409 41234f2e58589b447ab6cd631cd04aeb ""
+  "/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.aux" 1508063259 409 41234f2e58589b447ab6cd631cd04aeb ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc" 1136849721 1946 62ba825cda1ff16dbaa60d53ac60525a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc" 1136849721 2005 f094775651a1386335c158fb632529f1 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc" 1136849721 2468 3f9e2f3088bcf5b581dfc367d71e7d95 ""
@@ -83,16 +83,17 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1503478867 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1503478883 3856308 9a49581f47702c70a73d472138262ddd ""
+  "img/Figure_1.png" 1507923884 124298 b346bf217c5c732e72ef35ccd5452a08 ""
   "img/Plot1.png" 1507657899 41356 e8512d73dd99877416fbc3b2775a2aef ""
   "img/dp.png" 1507919121 623579 ee8999199bfc725afa8f0697563a2784 ""
   "img/sp.png" 1507919547 613100 0ec2ad06a273bbafb99b4e382197de1e ""
-  "sprawko1.aux" 1507921407 409 41234f2e58589b447ab6cd631cd04aeb ""
-  "sprawko1.tex" 1507921404 11656 79b6dc7263ac5cdd3e0dea7d25558bf6 ""
+  "sprawko1.aux" 1508063259 409 41234f2e58589b447ab6cd631cd04aeb ""
+  "sprawko1.tex" 1508063256 14132 361e00c8b2ec1504f9af27a07fa108dc ""
   (generated)
+  "/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.log"
   "sprawko1.aux"
-  "/home/yurii/projects/latex/mownit2_lab/sprawko1.pdf"
-  "/home/yurii/projects/latex/mownit2_lab/sprawko1.log"
   "sprawko1.pdf"
   "sprawko1.log"
-  "/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.log"
+  "/home/yurii/projects/latex/mownit2_lab/sprawko1.pdf"
+  "/home/yurii/projects/latex/mownit2_lab/sprawko1.log"
   "/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.pdf"
