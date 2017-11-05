@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  5 NOV 2017 14:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  5 NOV 2017 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -748,34 +748,40 @@ LaTeX Font Info:    External font `plex10' loaded for size
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
-Overfull \hbox (16.15352pt too wide) in paragraph at lines 305--309
+Overfull \hbox (16.15352pt too wide) in paragraph at lines 304--308
  []\OT4/cmr/bx/n/12 2[] \OT4/cmr/m/n/12 Dla zna-le-zie-nia wszyst-kich cy-klów wy-ko-rzy-sta-ªem kla-s¦ \OT4/cmr/m/it/12 Cyc-leU-til \OT4/cmr/m/n/12 na-pi-sa-n¡ przez [],
  []
 
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 324.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 324.
+
+Overfull \hbox (40.61453pt too wide) in paragraph at lines 304--308
+\OT4/cmr/m/n/12 znaj-du-j¡-ca si¦ pod ad-re-sem: []$\OT4/cmtt/m/n/12 https : / / github . com / lucaslouca / graph-[]cycles$[]\OT4/cmr/m/n/12 . Me-to-da []
+ []
+
+[6] [7] [8] [9] [10] [11] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 654.
+ [13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 654.
  (/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 324.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 324.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 654.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 654.
 Package rerunfilecheck Info: File `sprawko2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 324.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 654.
  ) 
 Here is how much of TeX's memory you used:
- 8437 strings out of 493029
- 120918 string characters out of 6136234
+ 8450 strings out of 493029
+ 121045 string characters out of 6136234
  222971 words of memory out of 5000000
- 11835 multiletter control sequences out of 15000+600000
- 12935 words of font info for 38 fonts, out of 8000000 for 9000
+ 11837 multiletter control sequences out of 15000+600000
+ 13727 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,6n,32p,241b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt12.pfb>
-Output written on /home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.pdf (7 pages, 88467 bytes).
+ 29i,6n,32p,241b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/pl/pltt12.pfb>
+Output written on /home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.pdf (13 pages, 110319 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 26 named destinations out of 1000 (max. 500000)
+ 147 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

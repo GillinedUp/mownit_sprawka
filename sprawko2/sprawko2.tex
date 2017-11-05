@@ -123,8 +123,7 @@ następujący sposób:
     \item Zostaw tylko te cykle, które zawierają nowe krawędzie.
     \item Dla każdej krawędzi zapamiętaj cyklę, które przechodzą przez nią.
     \item Stwórz macierz $A$ uwzględniając wszyskie prądy płynące przez każdy
-    obwód (cykl).
-    \item Stwórz wektor $b$ uwzględniając wszystkie źródła napięcia w obwodzie.
+    obwód (cykl) oraz wektor $b$ uwzględniając wszystkie źródła napięcia w obwodzie.
     \item Rozwiąż układ $A*b = x$. W wektorze $x$ mamy prądy, które płyną w obwodach.
     \item Policz napięcie na każdej krawędzi, uwzględniając wszyskie prądy
     płynące przez tą krawędź. Jeśli napięcie jest ujemne, odwróć jej kierunek.
@@ -132,7 +131,7 @@ następujący sposób:
 \end{enumerate}
 Niżej podaję pokrokowe rozwiązanie problemu wraz z kodem.
 \subparagraph{1.} Definicja grafu, wierzchołków i krawędzi.
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
     public class Vertex {
     	private int id;
 
@@ -172,7 +171,7 @@ Niżej podaję pokrokowe rozwiązanie problemu wraz z kodem.
 \end{Verbatim}
 Każdy wierzchołek ma unikalne id, stąd przyjąłem że dwa wierzchołki są sobie
 równe jeżeli ich id są równe.
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
     public class Edge {
     	private final Vertex source;
     	private final Vertex destination;
@@ -265,7 +264,7 @@ rezystor. Jeśli na krawędzi znajduje się źródło napięcia, to voltageDirec
 wskazuje kierunek napięcia. \newline
 Jako funkcję hashującą wybrałem funkcję pary Kantora. \newline
 Klasa odpowiedalna za wczytywanie grafu:
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
     public class GraphReader {
         private File file;
         private MyGraph graph;
@@ -304,10 +303,94 @@ Klasa odpowiedalna za wczytywanie grafu:
 Mój program pozwala na wczytanie więcej niż jednego źródła napięcia.
 \subparagraph{2} Dla znalezienia wszystkich cyklów wykorzystałem klasę \emph{CycleUtil}
 napisaną przez \mbox{\emph{lucaslouca}}, znajdująca się pod adresem:
-\url{https://github.com/lucaslouca/graph-cycles}. Metoda \emph{listAllCycles()} zwraca
+\url{https://github.com/lucaslouca/graph-cycles}. Metoda \mbox{\emph{listAllCycles()}} zwraca
 listę cykli jako listę grafów nieskierowanych.
 \subparagraph{3} Klasa CycleTransform jest odpowiedzialna za sprowadzanie cylki
-do postaci, z której możemy już wczytać informacje do macierzy. \newline
+do postaci, z której możemy już wczytać informacje do macierzy.
+\begin{Verbatim}[fontsize=\small]
+    public class CycleTransform {
+        private List<MyGraph> cyclesAsGraphList;
+
+        public CycleTransform(List<MyGraph> cyclesList) {
+            this.cyclesAsGraphList = cyclesList;
+        }
+
+        public List<List<Edge>> getCyclesFromGraphs() {
+            List<List<Edge>> cycles = new ArrayList<>();
+            for(MyGraph g : cyclesAsGraphList) {
+                cycles.add(g.getEdges());
+            }
+            return cycles;
+        }
+
+        public List<List<Edge>> removeRedundantEdges(List<List<Edge>> rawCycles) {
+            int currentSourceId;
+            int currentDestinationId;
+            List<List<Edge>> resultCycles = new ArrayList<>();
+            for (int i = 0; i < rawCycles.size(); i++) {
+                List<Edge> currentRawCycle = rawCycles.get(i);
+                resultCycles.add(new ArrayList<>());
+                List<Edge> currentResultCycle = resultCycles.get(i);
+                currentSourceId = currentRawCycle.get(0).getSource().getId();
+                currentDestinationId = currentRawCycle.get(0).getDestination().getId();
+                int loopInv = currentRawCycle.size() / 2;
+
+                for (int k = 0; k < loopInv; k++) {
+                    for (int j = 0; j < currentRawCycle.size(); j++) {
+                        if(currentRawCycle.get(j).getSource().getId() == currentSourceId &&
+                                currentRawCycle.get(j).getDestination().getId() == currentDestinationId) {
+                            currentResultCycle.add(currentRawCycle.remove(j));
+                            break;
+                        }
+                    }
+                    for (int j = 0; j < currentRawCycle.size(); j++) {
+                        if(currentRawCycle.get(j).getDestination().getId() == currentSourceId &&
+                                currentRawCycle.get(j).getSource().getId() == currentDestinationId) {
+                            currentRawCycle.remove(j);
+                            break;
+                        }
+                    }
+                    for (Edge aCurrentRawCycle : currentRawCycle) {
+                        if (aCurrentRawCycle.getSource().getId() == currentDestinationId) {
+                            currentSourceId = aCurrentRawCycle.getSource().getId();
+                            currentDestinationId = aCurrentRawCycle.getDestination().getId();
+                            break;
+                        }
+                    }
+                }
+            }
+            return resultCycles;
+        }
+
+        public void sortCyclesByLength(List<List<Edge>> cycles) {
+            cycles.sort((l1, l2) -> (l1.size() - l2.size()));
+        }
+
+        public void removeRedundantCycles(List<List<Edge>> cycles) {
+            Set<Edge> appearedEdgesSet = new HashSet<>();
+            boolean foundNewEdge = false;
+            for (int i = 0; i < cycles.size(); i++) {
+                for (Edge e : cycles.get(i)) {
+                    if(isNewEdge(appearedEdgesSet, e)) {
+                        appearedEdgesSet.add(e);
+                        foundNewEdge = true;
+                    }
+                }
+                if(!foundNewEdge) {
+                    cycles.remove(i);
+                    i--;
+                }
+                foundNewEdge = false;
+            }
+        }
+
+        boolean isNewEdge(Set<Edge> appearedEdgesSet, Edge e) {
+            return !(appearedEdgesSet.contains(e) ||
+                    appearedEdgesSet.contains(new Edge(e.getDestination(), e.getSource())));
+        }
+
+    }
+\end{Verbatim}
 Metoda \emph{removeRedundantEdges()} usuwa powtarzające się krawędzie oraz ustawia ich
 w kierunku, który wybieramy losowo. Ta losowość nie ma wpływu na poprawność
 działania programu, musimy poprostu zapamiętać kierunek dla tego cyklu względem
@@ -319,6 +402,255 @@ trochę przyspiesza działanie programu.
 napotkane krawędzie. Jeśli w kolejnej iteracji pętli programu napotkaliśmy cykl,
 który zawiera wyłącznie już napotkane krawędzie to usuwamy go. W taki sposób
 pozbawiamy się nadmiarowości przy tworzeniu macierzy.
-\subparagraph{5}
+\subparagraph{6} Tworzeniem i wypełnianiem macierzy $A$ oraz wektora $b$ zajmuje
+się klasa \emph{MatrixPreparer}.
+\begin{Verbatim}[fontsize=\small]
+    public class MatrixPreparer {
+        private List<List<Edge>> cycles;
+        private double[][] matrix;
+        private double[][] vector;
+        private LinkedHashMap<Edge, List<CurrentDirection>> edgeCurrentsMap;
 
+        public MatrixPreparer(List<List<Edge>> cycles) {
+            this.cycles = cycles;
+            int n = cycles.size();
+            matrix = new double[n][n];
+            vector = new double[n][n];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j] = 0.0;
+                }
+                vector[i][0] = 0.0;
+            }
+            edgeCurrentsMap = new LinkedHashMap<>();
+        }
+
+        public void fillMap() {
+            for (int i = 0; i < cycles.size(); i++) {
+                List<Edge> cycle = cycles.get(i);
+                for (Edge edge : cycle) {
+                    if (!edgeCurrentsMap.containsKey(edge)) {
+                        List<CurrentDirection> currentDirections = new ArrayList<>();
+                        currentDirections.add(new CurrentDirection(i, edge.getWeight()));
+                        edgeCurrentsMap.put(edge, currentDirections);
+                    } else {
+                        edgeCurrentsMap.get(edge).add(new CurrentDirection(i, edge.getWeight()));
+                    }
+
+                }
+            }
+        }
+
+        public void fillMatrix() {
+            for (int i = 0; i < cycles.size(); i++) {
+                fillRow(i);
+            }
+        }
+
+        void fillRow(int i) {
+            List<Edge> currentRow = cycles.get(i);
+            for (Edge currentEdge : currentRow) {
+                if (currentEdge.isVoltage()) {
+                    if (currentEdge.getVoltageDirection() < 0) {
+                        vector[i][0] = currentEdge.getWeight();
+                    } else {
+                        vector[i][0] = -currentEdge.getWeight();
+                    }
+                } else {
+                    if (currentEdge.getWeight() != 0.0) {
+                        matrix[i][i] += currentEdge.getWeight();
+                        checkInfoAboutEdge(i, currentEdge);
+                    }
+                }
+            }
+        }
+
+        void checkInfoAboutEdge(int i, Edge currentEdge) {
+            Edge reversedEdge = new Edge(
+                    currentEdge.getDestination(),
+                    currentEdge.getSource(),
+                    currentEdge.getWeight()
+            );
+            List<CurrentDirection> currents;
+            if (edgeCurrentsMap.containsKey(currentEdge)) {
+                currents = edgeCurrentsMap.get(currentEdge);
+                for (CurrentDirection current : currents) {
+                    int j = current.getCurrentNum();
+                    if (i != j) {
+                        matrix[i][j] += current.getWeight();
+                    }
+                }
+            }
+            if (edgeCurrentsMap.containsKey(reversedEdge)) {
+                currents = edgeCurrentsMap.get(reversedEdge);
+                for (CurrentDirection current : currents) {
+                    int j = current.getCurrentNum();
+                    if (i != j) {
+                        matrix[i][j] -= current.getWeight();
+                    }
+                }
+            }
+        }
+
+        public LinkedHashMap<Edge, List<CurrentDirection>> getEdgeCurrentsMap() {
+            return edgeCurrentsMap;
+        }
+
+        public double[][] getMatrix() {
+            return matrix;
+        }
+
+        public double[][] getVector() {
+            return vector;
+        }
+    }
+\end{Verbatim}
+\emph{fillMap()} zapamiętuje numery cyklów dla każdego wierzchołka. Przechowywanie
+numerów odbywa się w obiektach klasy \emph{CurrentDirection}.
+\begin{Verbatim}[fontsize=\small]
+    public class CurrentDirection {
+        private int currentNum;
+        private double weight;
+
+        CurrentDirection(int c, double w) {
+            this.currentNum = c;
+            this.weight = w;
+        }
+
+        public int getCurrentNum() {
+            return currentNum;
+        }
+
+        double getWeight() {
+            return weight;
+        }
+    }
+\end{Verbatim}
+\subparagraph{7} Metoda \emph{fillMatrix()} wypelnia macierz $A$ i wektor $b$
+przez wywołanie pomocniczych metod \emph{fillRow()} oraz \emph{checkInfoAboutEdge()}.
+\emph{fillRow()} wypełnia pozycję $A_{ii}$ oraz $b_i$, gdzie $0 \leq i < n$.
+\emph{checkInfoAboutEdge()} wypełnia pozostałe pozycje.
+\subparagraph{8} Dla rozwiązywania otrzymanego układu równań, korzystałem z
+metody \emph{solve()} z biblioteki algebry liniowej JAMA.
+\begin{Verbatim}[fontsize=\small]
+    Matrix a = new Matrix(matrixPreparer.getMatrix());
+    Matrix b = new Matrix(matrixPreparer.getVector());
+    Matrix x = a.solve(b);
+\end{Verbatim}
+\subparagraph{9} Dla tworzenia grafu dla wizualizacji stosuję klasę
+\emph{VisualGraphMaker}.
+\begin{Verbatim}[fontsize=\small]
+    public class VisualGraphMaker {
+        private Graph<Vertex, Edge> resultGraph;
+        private List<Vertex> vertices;
+        private Matrix b;
+        private LinkedHashMap<Edge, List<CurrentDirection>> edgeCurrentsMap;
+
+        public VisualGraphMaker(
+                Matrix b,
+                List<Vertex> vertices,
+                LinkedHashMap<Edge, List<CurrentDirection>> edgeCurrentsMap
+        )
+        {
+            this.b = b;
+            resultGraph = new DirectedSparseGraph<>();
+            this.vertices = vertices;
+            this.edgeCurrentsMap = edgeCurrentsMap;
+        }
+
+        public void createGraph() {
+            for (Vertex v : vertices) {
+                resultGraph.addVertex(v);
+            }
+            Set<Edge> visitedEdges = new HashSet<>();
+            for (Map.Entry<Edge, List<CurrentDirection>> entry : edgeCurrentsMap.entrySet()) {
+                Edge edge = entry.getKey();
+                Edge reversedEdge = new Edge(
+                        edge.getDestination(),
+                        edge.getSource(),
+                        edge.getWeight()
+                );
+                if(!visitedEdges.contains(reversedEdge)) {
+                    visitedEdges.add(edge);
+                    List<CurrentDirection> directions = entry.getValue();
+                    double result = 0.0;
+                    if(edge.isVoltage()) {
+                        result = edge.getWeight();
+                    } else {
+                        for (CurrentDirection direction : directions) {
+                            int i = direction.getCurrentNum();
+                            result += b.get(i, 0);
+                        }
+                        if(edgeCurrentsMap.containsKey(reversedEdge)) {
+                            List<CurrentDirection> otherDirections =
+                                edgeCurrentsMap.get(reversedEdge);
+                            for (CurrentDirection direction : otherDirections) {
+                                int i = direction.getCurrentNum();
+                                result -= b.get(i, 0);
+                            }
+                        }
+                        result = result * edge.getWeight();
+                    }
+                    if (result > 0) {
+                        resultGraph.addEdge(
+                                new Edge(edge.getSource(), edge.getDestination(), result),
+                                edge.getSource(),
+                                edge.getDestination()
+                        );
+                    } else {
+                        resultGraph.addEdge(
+                                new Edge(edge.getDestination(), edge.getSource(), -result),
+                                edge.getDestination(),
+                                edge.getSource()
+                        );
+                    }
+                }
+            }
+        }
+
+        public Graph<Vertex, Edge> getResultGraph() {
+            return resultGraph;
+        }
+    }
+\end{Verbatim}
+W tej klasie metoda \emph{createGraph()} przechodzi po wszystkich krawędziach,
+oblicza sumę wszyskich prądów, przechodzących przez tą krawędź, i tworzy nową
+krawędź z wagą równą obliczonej sumie razy rezystancji. Kierunek krawędzi
+zależy o tego czy otrzymany wynik jest większy od zera. W taki sposób mamy
+możliwość graficznie reprezentować kierunek przepływu prądu.
+\subparagraph{10} Dla rysowania grafu korzystam z biblioteki Jung. Wszystkie
+sprawy związane z rysowaniem grafu wykonują się w klase \emph{Visualizer}.
+\begin{Verbatim}[fontsize=\small]
+    public class Visualizer {
+
+        private BasicVisualizationServer<Vertex, Edge> basicVisualizationServer;
+
+        public Visualizer(Graph<Vertex, Edge> graph) {
+            Layout<Vertex, Edge> layout = new FRLayout<>(graph);
+            this.basicVisualizationServer = new BasicVisualizationServer<>(layout);
+        }
+
+        public void setContext() {
+            DecimalFormat df = new DecimalFormat("#.##");
+            basicVisualizationServer
+                    .getRenderContext()
+                    .setEdgeLabelTransformer(edge -> df.format(edge.getWeight()));
+            basicVisualizationServer
+                    .getRenderContext()
+                    .setVertexLabelTransformer(Vertex::toString);
+            basicVisualizationServer.setPreferredSize(new Dimension(900, 700));
+        }
+
+        public void initializeFrame() {
+            JFrame frame = new JFrame("graph");
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.getContentPane().add(basicVisualizationServer);
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        }
+    }
+\end{Verbatim}
+Niżej przedstawiam przykładowy rysunek grafu.
+\includegraphics[width=1\textwidth]{img/graph} \\
 \end{document}
