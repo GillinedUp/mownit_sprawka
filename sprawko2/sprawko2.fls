@@ -153,6 +153,9 @@ INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plr10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/pltt10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plti12.tfm
+INPUT /home/yurii/projects/latex/mownit2_lab/sprawko2/img/graph.png
+INPUT /home/yurii/projects/latex/mownit2_lab/sprawko2/img/graph.png
+INPUT /home/yurii/projects/latex/mownit2_lab/sprawko2/img/graph.png
 INPUT /home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.aux
 INPUT /home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.out
 INPUT /home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.out

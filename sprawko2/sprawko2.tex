@@ -8,7 +8,7 @@
 \usepackage{geometry}
 \usepackage{multirow}
 \usepackage{amsmath}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \geometry{
  a4paper,
  total={170mm,257mm},
@@ -173,27 +173,27 @@ Każdy wierzchołek ma unikalne id, stąd przyjąłem że dwa wierzchołki są s
 równe jeżeli ich id są równe.
 \begin{Verbatim}[fontsize=\small]
     public class Edge {
-    	private final Vertex source;
-    	private final Vertex destination;
-    	private double weight;
+        private final Vertex source;
+        private final Vertex destination;
+        private double weight;
         private boolean isVoltage;
-    	private int voltageDirection;
+        private int voltageDirection;
 
-    	public Edge(Vertex source, Vertex destination) {
-    		this.source = source;
-    		this.destination = destination;
-    		this.weight = 0.0;
+        public Edge(Vertex source, Vertex destination) {
+            this.source = source;
+            this.destination = destination;
+            this.weight = 0.0;
             this.isVoltage = false;
-    		this.voltageDirection = 0; // - -> + == > 0; + -> - == < 0
-    	}
+            this.voltageDirection = 0; // - -> + == > 0; + -> - == < 0
+        }
 
-    	public Edge(Vertex source, Vertex destination, double weight) {
-    		this.source = source;
-    		this.destination = destination;
-    		this.weight = weight;
+        public Edge(Vertex source, Vertex destination, double weight) {
+            this.source = source;
+            this.destination = destination;
+            this.weight = weight;
             this.isVoltage = false;
             this.voltageDirection = 0;
-    	}
+        }
 
         int getVoltageDirection() {
             return voltageDirection;
@@ -204,12 +204,12 @@ równe jeżeli ich id są równe.
         }
 
         public Vertex getDestination() {
-    		return destination;
-    	}
+            return destination;
+        }
 
-    	public Vertex getSource() {
-    		return source;
-    	}
+        public Vertex getSource() {
+            return source;
+        }
 
         public double getWeight() {
             return weight;
@@ -224,38 +224,38 @@ równe jeżeli ich id są równe.
         }
 
         @Override
-    	public String toString() {
-    		return source + "-" + destination;
-    	}
+        public String toString() {
+            return source + "-" + destination;
+        }
 
-    	@Override
-    	public int hashCode() {
-    		int x = source.getId();
-    		int y = destination.getId();
-    		return ((x + y)*(x + y + 1))/2 + y;
-    	}
+        @Override
+        public int hashCode() {
+            int x = source.getId();
+            int y = destination.getId();
+            return ((x + y)*(x + y + 1))/2 + y;
+        }
 
-    	@Override
-    	public boolean equals(Object obj) {
-    		if (this == obj)
-    			return true;
-    		if (obj == null)
-    			return false;
-    		if (getClass() != obj.getClass())
-    			return false;
-    		Edge other = (Edge) obj;
-    		if (destination == null) {
-    			if (other.destination != null)
-    				return false;
-    		} else if (!destination.equals(other.destination))
-    			return false;
-    		if (source == null) {
-    			if (other.source != null)
-    				return false;
-    		} else if (!source.equals(other.source))
-    			return false;
-    		return true;
-    	}
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+    	    return true;
+    	if (obj == null)
+    	    return false;
+    	if (getClass() != obj.getClass())
+    	    return false;
+    	Edge other = (Edge) obj;
+    	if (destination == null) {
+    	    if (other.destination != null)
+                    return false;
+            } else if (!destination.equals(other.destination))
+                return false;
+            if (source == null) {
+                if (other.source != null)
+                    return false;
+            } else if (!source.equals(other.source))
+                return false;
+    	return true;
+        }
 
     }
 \end{Verbatim}
@@ -302,8 +302,8 @@ Klasa odpowiedalna za wczytywanie grafu:
 \end{Verbatim}
 Mój program pozwala na wczytanie więcej niż jednego źródła napięcia.
 \subparagraph{2} Dla znalezienia wszystkich cyklów wykorzystałem klasę \emph{CycleUtil}
-napisaną przez \mbox{\emph{lucaslouca}}, znajdująca się pod adresem:
-\url{https://github.com/lucaslouca/graph-cycles}. Metoda \mbox{\emph{listAllCycles()}} zwraca
+napisaną przez \newline \mbox{\emph{lucaslouca}}, znajdująca się pod adresem:
+\url{https://github.com/lucaslouca/graph-cycles}. \newline Metoda \mbox{\emph{listAllCycles()}} zwraca
 listę cykli jako listę grafów nieskierowanych.
 \subparagraph{3} Klasa CycleTransform jest odpowiedzialna za sprowadzanie cylki
 do postaci, z której możemy już wczytać informacje do macierzy.
@@ -652,5 +652,8 @@ sprawy związane z rysowaniem grafu wykonują się w klase \emph{Visualizer}.
     }
 \end{Verbatim}
 Niżej przedstawiam przykładowy rysunek grafu.
-\includegraphics[width=1\textwidth]{img/graph} \\
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{img/graph}
+\end{center}
+
 \end{document}

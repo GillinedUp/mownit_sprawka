@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1509894899 "sprawko2.tex" "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.pdf" "sprawko2" 1509894900
+["pdflatex"] 1509896461 "sprawko2.tex" "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.pdf" "sprawko2" 1509896462
   "/etc/texmf/web2c/texmf.cnf" 1500980154 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.aux" 1509894899 1506 d6ad277921ce1e4f6b14008784b0a7d8 ""
+  "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.aux" 1509896462 1506 d6ad277921ce1e4f6b14008784b0a7d8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc" 1136849721 1946 62ba825cda1ff16dbaa60d53ac60525a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc" 1136849721 2005 f094775651a1386335c158fb632529f1 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc" 1136849721 2468 3f9e2f3088bcf5b581dfc367d71e7d95 ""
@@ -99,13 +99,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1503478867 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1503478883 3856308 9a49581f47702c70a73d472138262ddd ""
-  "sprawko2.aux" 1509894899 1506 d6ad277921ce1e4f6b14008784b0a7d8 ""
-  "sprawko2.out" 1509894899 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "sprawko2.tex" 1509894898 24564 0c499d4a720434346daf5c73e96026dc ""
+  "img/graph.png" 1509895645 31670 6aa44f41633ff01298bb7869449c4f18 ""
+  "sprawko2.aux" 1509896462 1506 d6ad277921ce1e4f6b14008784b0a7d8 ""
+  "sprawko2.out" 1509896462 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "sprawko2.tex" 1509896460 24936 92a578f89a1452278849f02c53b52eda ""
   (generated)
-  "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.log"
+  "sprawko2.log"
   "sprawko2.out"
   "sprawko2.pdf"
-  "sprawko2.log"
-  "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.pdf"
   "sprawko2.aux"
+  "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.pdf"
+  "/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.log"
