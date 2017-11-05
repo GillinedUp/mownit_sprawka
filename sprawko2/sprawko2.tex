@@ -8,6 +8,7 @@
 \usepackage{geometry}
 \usepackage{multirow}
 \usepackage{amsmath}
+\usepackage{hyperref}
 \geometry{
  a4paper,
  total={170mm,257mm},
@@ -23,7 +24,7 @@
   \begin{Verbatim}
     function [p, A] = LU(A)
         [n,~] = size(A);
-        s = zeros(1,5);
+        s = zeros(1,n);
         p = zeros(1,n);
         for i = 1:n
             s(i) = max(abs(A(i,:)));
@@ -109,6 +110,215 @@ W tej funkcji oblicamy $P$, $L$ i $U$ za pomocą wspomnianej wyżej funkcji oraz
 tworzymy nowe macierze $X=P*A$ i $Y=L*U$. Dalej porównujemy każdy odpowiedni element
 macierzy $X$ oraz $Y$ i zwracamy "prawdę", jeśli $X_{ij}$ jest prawie równe
 $Y_{ij}$ dla każdego $1 \leq i \leq n$ oraz $1 \leq j \leq n$.
+\paragraph{Zadanie 3 Analiza obwodu elektrycznego}\mbox{}\vspace{3mm}\\
+Działanie programu, który rozwiązuję dane zadanie, krótko można opisać w
+następujący sposób:
+\begin{enumerate}
+    \item Wczytaj z pliku wierzchołki i krawędzi i stwróż z nich graf opisujący
+    obwód elektrycny.
+    \item Znajdź wszystkie cykle w grafie.
+    \item Załóż kierunek przepływu prądu sprowadając wygenerowane cylke do
+    postaci skierowanej.
+    \item Posortuj te cykle według ich długości.
+    \item Zostaw tylko te cykle, które zawierają nowe krawędzie.
+    \item Dla każdej krawędzi zapamiętaj cyklę, które przechodzą przez nią.
+    \item Stwórz macierz $A$ uwzględniając wszyskie prądy płynące przez każdy
+    obwód (cykl).
+    \item Stwórz wektor $b$ uwzględniając wszystkie źródła napięcia w obwodzie.
+    \item Rozwiąż układ $A*b = x$. W wektorze $x$ mamy prądy, które płyną w obwodach.
+    \item Policz napięcie na każdej krawędzi, uwzględniając wszyskie prądy
+    płynące przez tą krawędź. Jeśli napięcie jest ujemne, odwróć jej kierunek.
+    \item Narysuj wczytany graf dopisując wartości napięć na krawędziach.
+\end{enumerate}
+Niżej podaję pokrokowe rozwiązanie problemu wraz z kodem.
+\subparagraph{1.} Definicja grafu, wierzchołków i krawędzi.
+\begin{Verbatim}
+    public class Vertex {
+    	private int id;
 
+    	Vertex(int id) {
+    	    this.id = id;
+        }
+
+    	int getId() {
+    	    return this.id;
+        }
+
+    	@Override
+    	public String toString() {
+    		return "(" + id + ")";
+    	}
+
+    	@Override
+    	public int hashCode() {
+    		final int prime = 31;
+    		int result = 1;
+    		result = prime * result + id;
+    		return result;
+    	}
+
+    	@Override
+    	public boolean equals(Object obj) {
+    		if (this == obj)
+    			return true;
+    		if (obj == null)
+    			return false;
+    		if (getClass() != obj.getClass())
+    			return false;
+    		Vertex other = (Vertex) obj;
+    		return id == other.id;
+    	}
+    }
+\end{Verbatim}
+Każdy wierzchołek ma unikalne id, stąd przyjąłem że dwa wierzchołki są sobie
+równe jeżeli ich id są równe.
+\begin{Verbatim}
+    public class Edge {
+    	private final Vertex source;
+    	private final Vertex destination;
+    	private double weight;
+        private boolean isVoltage;
+    	private int voltageDirection;
+
+    	public Edge(Vertex source, Vertex destination) {
+    		this.source = source;
+    		this.destination = destination;
+    		this.weight = 0.0;
+            this.isVoltage = false;
+    		this.voltageDirection = 0; // - -> + == > 0; + -> - == < 0
+    	}
+
+    	public Edge(Vertex source, Vertex destination, double weight) {
+    		this.source = source;
+    		this.destination = destination;
+    		this.weight = weight;
+            this.isVoltage = false;
+            this.voltageDirection = 0;
+    	}
+
+        int getVoltageDirection() {
+            return voltageDirection;
+        }
+
+        void setVoltageDirection(int voltageDirection) {
+            this.voltageDirection = voltageDirection;
+        }
+
+        public Vertex getDestination() {
+    		return destination;
+    	}
+
+    	public Vertex getSource() {
+    		return source;
+    	}
+
+        public double getWeight() {
+            return weight;
+        }
+
+        public boolean isVoltage() {
+            return isVoltage;
+        }
+
+        void setVoltage() {
+    	    isVoltage = true;
+        }
+
+        @Override
+    	public String toString() {
+    		return source + "-" + destination;
+    	}
+
+    	@Override
+    	public int hashCode() {
+    		int x = source.getId();
+    		int y = destination.getId();
+    		return ((x + y)*(x + y + 1))/2 + y;
+    	}
+
+    	@Override
+    	public boolean equals(Object obj) {
+    		if (this == obj)
+    			return true;
+    		if (obj == null)
+    			return false;
+    		if (getClass() != obj.getClass())
+    			return false;
+    		Edge other = (Edge) obj;
+    		if (destination == null) {
+    			if (other.destination != null)
+    				return false;
+    		} else if (!destination.equals(other.destination))
+    			return false;
+    		if (source == null) {
+    			if (other.source != null)
+    				return false;
+    		} else if (!source.equals(other.source))
+    			return false;
+    		return true;
+    	}
+
+    }
+\end{Verbatim}
+Pole isVoltage mówi o tym, czy na krawędzi znajduje się źródło napięcia czy
+rezystor. Jeśli na krawędzi znajduje się źródło napięcia, to voltageDirection
+wskazuje kierunek napięcia. \newline
+Jako funkcję hashującą wybrałem funkcję pary Kantora. \newline
+Klasa odpowiedalna za wczytywanie grafu:
+\begin{Verbatim}
+    public class GraphReader {
+        private File file;
+        private MyGraph graph;
+
+        public GraphReader(File file) {
+            this.file = file;
+            graph = new MyGraph();
+        }
+
+        public void readFromFile() throws FileNotFoundException {
+            Scanner scanner = new Scanner(new FileInputStream(file));
+            boolean isVoltageEdge = false;
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.trim().length() == 0) {
+                    isVoltageEdge = true;
+                    continue;
+                }
+                String[] data = line.split(" ");
+                int vertex1Id = Integer.parseInt(data[0]);
+                int vertex2Id = Integer.parseInt(data[1]);
+                double weight = Double.parseDouble(data[2]);
+                if(isVoltageEdge) {
+                    graph.addBidirectionalVoltageEdge(vertex1Id, vertex2Id, weight);
+                } else {
+                    graph.addBidirectionalEdge(vertex1Id, vertex2Id, weight);
+                }
+            }
+        }
+
+        public MyGraph getGraph() {
+            return graph;
+        }
+    }
+\end{Verbatim}
+Mój program pozwala na wczytanie więcej niż jednego źródła napięcia.
+\subparagraph{2} Dla znalezienia wszystkich cyklów wykorzystałem klasę \emph{CycleUtil}
+napisaną przez \mbox{\emph{lucaslouca}}, znajdująca się pod adresem:
+\url{https://github.com/lucaslouca/graph-cycles}. Metoda \emph{listAllCycles()} zwraca
+listę cykli jako listę grafów nieskierowanych.
+\subparagraph{3} Klasa CycleTransform jest odpowiedzialna za sprowadzanie cylki
+do postaci, z której możemy już wczytać informacje do macierzy. \newline
+Metoda \emph{removeRedundantEdges()} usuwa powtarzające się krawędzie oraz ustawia ich
+w kierunku, który wybieramy losowo. Ta losowość nie ma wpływu na poprawność
+działania programu, musimy poprostu zapamiętać kierunek dla tego cyklu względem
+innych.
+\subparagraph{4} Metoda \emph{sortCyclesByLength()} sortuje krawędzi według długości. Robimy to
+dla tego, żeby zostawić tylko najkrótsze cykle z tych, które nam potrzebne. To
+trochę przyspiesza działanie programu.
+\subparagraph{5} Metoda \emph{removeRedundantCycles()} przechodzi po wszyskich cyklach i zapamiętuję
+napotkane krawędzie. Jeśli w kolejnej iteracji pętli programu napotkaliśmy cykl,
+który zawiera wyłącznie już napotkane krawędzie to usuwamy go. W taki sposób
+pozbawiamy się nadmiarowości przy tworzeniu macierzy.
+\subparagraph{5}
 
 \end{document}
