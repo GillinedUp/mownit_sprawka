@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  27 OCT 2017 23:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  5 NOV 2017 10:43
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1
-(/home/yurii/projects/latex/mownit2_lab/sprawko1/sprawko1.tex
+**sprawko2.tex
+(/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -24,14 +25,14 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 ) (/usr/share/texlive/texmf-dist/tex/latex/polski/polski.sty
 Package: polski 2008/02/24 v1.3.3 Polish language package
+
 Document language package `polski' v1.3.3 <2008/02/24>
    Switching to Polish text encoding and Polish maths fonts.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot4enc.def
 File: ot4enc.def 2005/09/27 v1.99g Standard LaTeX file
 )
 LaTeX Font Info:    Try loading font information for OT4+cmr on input line 346.
-
-(/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmr.fd
 File: ot4cmr.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
@@ -48,7 +49,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT4/cmr/bx/it on input line 346.
 LaTeX Font Info:    Encoding `OT1' has changed to `OT4' for symbol font
 (Font)              `operators' in the math version `normal' on input line 346.
-
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT4/cmr/m/n on input line 346.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
@@ -69,13 +69,13 @@ LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+ (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -307,7 +307,7 @@ File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
-(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -347,7 +347,7 @@ File: ot1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
 )
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
-(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -372,8 +372,7 @@ Now handling font encoding OT4 ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty (/usr/share/t
-exlive/texmf-dist/tex/latex/graphics/keyval.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
@@ -389,7 +388,7 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \lst@newlines=\count91
 \lst@lineno=\count92
 \lst@maxwidth=\dimen106
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count93
 \lst@skipnumbers=\count94
@@ -398,18 +397,19 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 ) (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 95.
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+ (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
@@ -421,9 +421,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@width=\dimen108
 ) (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2008/02/07
-
-Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
-<2008/02/07> (tvz)
+ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix <2008/02/07> (tvz)
 \FV@CodeLineNo=\count96
 \FV@InFile=\read1
 \FV@TabBox=\box28
@@ -432,7 +430,7 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 \FV@OutFile=\write3
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen109
 \extrarowheight=\dimen110
@@ -449,7 +447,7 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \TX@ftn=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
@@ -472,41 +470,94 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen124
-) (./sprawko1.aux)
-\openout1 = `sprawko1.aux'.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip45
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-\c@lstlisting=\count103
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen125
-\scratchbox=\box29
-\nofMPsegments=\count105
-\nofMParguments=\count106
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen126
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
-\everyMPtoPDFconversion=\toks22
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen125
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen126
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+\inf@bad=\count103
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count104
+\leftroot@=\count105
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count106
+\DOTSCASE@=\count107
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen127
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count108
+\c@MaxMatrixCols=\count109
+\dotsspace@=\muskip10
+\c@parentequation=\count110
+\dspbrk@lvl=\count111
+\tag@help=\toks22
+\row@=\count112
+\column@=\count113
+\maxfields@=\count114
+\andhelp@=\toks23
+\eqnshift@=\dimen128
+\alignsep@=\dimen129
+\tagshift@=\dimen130
+\tagwidth@=\dimen131
+\totwidth@=\dimen132
+\lineht@=\dimen133
+\@envbody=\toks24
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+) (/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.aux)
+\openout1 = `sprawko2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+\c@lstlisting=\count115
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count116
+\scratchdimen=\dimen134
+\scratchbox=\box31
+\nofMPsegments=\count117
+\nofMParguments=\count118
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count119
+\MPscratchDim=\dimen135
+\MPnumerator=\count120
+\makeMPintoPDFobject=\count121
+\everyMPtoPDFconversion=\toks27
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -516,15 +567,15 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 )) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -532,12 +583,10 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -573,508 +622,50 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OML+plm on input line 20.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 21.
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 20.
-
-(/usr/share/texlive/texmf-dist/tex/latex/polski/omsplsy.fd
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 21.
+ (/usr/share/texlive/texmf-dist/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 20.
-
-(/usr/share/texlive/texmf-dist/tex/latex/polski/omxplex.fd
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 21.
+ (/usr/share/texlive/texmf-dist/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <14.4> on input line 20.
+(Font)              <14.4> on input line 21.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 20.
+(Font)              <10> on input line 21.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 20.
+(Font)              <7> on input line 21.
 LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 23.
-
-(/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 34.
+(Font)              <12> on input line 57.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 34.
+(Font)              <8> on input line 57.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 34.
-<img/Plot1.png, id=1, 864.22874pt x 484.81125pt>
-File: img/Plot1.png Graphic file (type png)
-<use img/Plot1.png>
-Package pdftex.def Info: img/Plot1.png used on input line 43.
-(pdftex.def)             Requested size: 483.69684pt x 271.34448pt.
-[1
+(Font)              <6> on input line 57.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (/home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.aux) ) 
+Here is how much of TeX's memory you used:
+ 4919 strings out of 493029
+ 67405 string characters out of 6136234
+ 145243 words of memory out of 5000000
+ 8368 multiletter control sequences out of 15000+600000
+ 12397 words of font info for 37 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,6n,32p,241b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt12.pfb>
+Output written on /home/yurii/projects/latex/mownit2_lab/sprawko2/sprawko2.pdf (2 pages, 64836 bytes).
+PDF statistics:
+ 55 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./img/Plot1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.6251329
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.634984
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.6399467
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.642936
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.6439348
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.1093994
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.1094086
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.1094086
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.1094086
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.1094086
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0369275
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0369275
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0369275
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0369275
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0369275
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0072277
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0072277
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0072277
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0072277
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0072277
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0009946
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0009946
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0009946
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0009946
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
-[]|\OT4/cmr/m/n/12 1.0009946
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.822271
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.8224175
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.8224547
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.82246536
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.82246685
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.93469304
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9346932
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9346932
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9346932
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9346932
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9721198
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9721198
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9721198
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9721198
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.9721198
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99352705
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99352705
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99352705
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99352705
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99352705
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99903953
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99903953
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99903953
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99903953
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-[]|\OT4/cmr/m/n/12 0.99903953
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.625132733621529
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.6349839001848923
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.6399465460149971
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.1093997551541945
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.1094087973421474
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.1094102423332313
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.036927716716712
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.0369277526929555
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.0369277549886775
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.0072276664762816
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.007227666480654
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.0072276664807145
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.0009945751278182
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.0009945751278182
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-[]|\OT4/cmr/m/n/12 1.0009945751278182
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.642936065514894
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.6439345666815615
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.1094104908440712
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.1094105108423578
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.0369277551393863
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.0369277551431222
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.0072276664807145
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.0072276664807145
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.0009945751278182
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\OT4/cmr/m/n/12 1.0009945751278182
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.8222710318260295
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.8224175333741286
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.822454595922551
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9346930600307106
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9346933211400662
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9346933421086845
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9721197689267979
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9721197703981592
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.972119770445367
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9935270006613486
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9935270006616185
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9935270006616201
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9990395075982718
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9990395075982718
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\OT4/cmr/m/n/12 0.9990395075982718
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
-[]|\OT4/cmr/m/n/12 0.8224650374240963
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
-[]|\OT4/cmr/m/n/12 0.8224665339241114
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
-[]|\OT4/cmr/m/n/12 0.9346933438558745
- []
-
-
-Underfull \hbox (badness 10000) in paragraph 

@@ -34,8 +34,8 @@
   Bezwzględny błąd: $ \sim 5.3 \%$. \\
   Względny błąd: $ 281659.5$. \\
   Wielkość błędu sumowania jest związana z reprezentacją liczb
-  zmiennoprzecinkowych oraz z implementacją sumowania dwóch l.z.
-  Dla obliczenia sumy dwóch l.z. mantysę mniejszej z liczb musimy doprowadzić
+  zmiennoprzecinkowych oraz z implementacją sumowania dwóch l.~z.
+  Dla obliczenia sumy dwóch l.~z., mantysę mniejszej z liczb musimy doprowadzić
   do postaci większej z liczb co wiąże się z utratą mniej znaczących cyfr
   cechy. \\
   Poniżej przedstawiamy wykres który pokazuje zależność pomiędzy błędem
@@ -58,16 +58,17 @@
   }
   \end{Verbatim}
   Dla $v = 0.53125$: \newline
-  Bezwzględny błąd: $ 0.0 \% $. \newline
-  Względny błąd: $ 0.0 $. \newline
-  Korzystając z rekurencyjnego algorytmu, nie dostaliśmy błędu. Ten algorytm
-  jest zaimplementowany tak, że dodaje liczby wylącznie o tej samej wielkości,
-  więc przesunięcie cechy i, co za tym idzie, utrata precyzji nie występują.
+  bezwzględny błąd: $ 0.0 \% $; \newline
+  względny błąd: $ 0.0 $. \newline
+  Korzystając z rekurencyjnego algorytmu, przy $v = 0.53125$ nie mamy
+  błędu. Ten algorytm jest zaimplementowany tak, że dodaje liczby wylącznie o
+  tej samej wielkości, więc przesunięcie cechy i, co za tym idzie, utrata
+  precyzji nie występują.
   \newline
   Czas działania obu algorytmów jest mniej więcej taki sam dla różnych danych
   wejściowych. \newline
   Algorytm rekurencyjny zwraca niezerowy błąd dla $v = 0.66667$. W tym przypadku,
-  bezwzględny błąd jest równy $ \sim 0.000075 \% $, względny zaś $ -0.5 $. \newline
+  bezwzględny błąd jest równy $ \sim 0.000075 \% $, względny zaś $ -0.5 $.
   \paragraph{Zadanie 2 Algorytm Kahana}\mbox{}\vspace{3mm}\\
   \emph{Implementacja algorytmu Kahana w języku Java}
   \begin{Verbatim}
@@ -86,7 +87,7 @@
   Algorytm Kahana działa w następujący sposób. Każdego razu jak dodajemy
   nową liczbę do ogólnej sumy ($sum + y$), obliczamy korektę ($err$),
   który stosujemy w następnej iteracji. Najpierw odejmujemy korektę $err$,
-  którą obliczyliśmy w poprzedniej iteracji pętli i otrzymujemy poprawiony
+  którą obliczyliśmy w poprzedniej iteracji pętli, i otrzymujemy poprawiony
   składnik $y$. Później dodajemy ten składnik do sumy $sum$. Najmniej znaczące
   bity $y$ straciliśmy przy sumowaniu. Potem obliczamy najbardziej znaczące
   bity $y$ za pomocą $temp - sum$. Kiedy odejmniemy $y$ od otrzymanej różnicy,
@@ -97,7 +98,7 @@
   \paragraph{Zadanie 3 Sumy częściowe}\mbox{}\vspace{3mm}\\
   Tablice nalerzy czytać w następujący sposób: najpierw podany jest wynik,
   otrzymany przy sumowaniu wprzód, a niżej w tej samej komórce wynik, otrzymany
-  przy sumowaniu wstecz.
+  przy sumowaniu wstecz.\vspace{3mm}\\
   \emph{Funkcje policzone z pojedynczą precyzją:} \vspace{3mm}\\
   Funkcja dzeta Riemanna: \vspace{3mm}\newline
   \begin{tabularx}{\textwidth}{ |l|l|X|X|X|X|X| }
@@ -177,7 +178,7 @@
   najpierw małe liczby między sobą. Składniki, które dodajemy do sumy, rosną
   przy iteracji w pętli. W ten sposób zmniejszamy błąd zaokrąglenia. \\
   Udowodnić powyższe twierdzenie można w następujący sposób. Niech $x, y, z$
-  będą l.z., przy czym $|x + y| < |y + z|$. W zależnosci od porządku, w którym
+  będą l.~z., przy czym $|x + y| < |y + z|$. W zależnosci od porządku, w którym
   będziemy dodawać te liczby, dostaniemy dwa wyniki (z uwzględnieniem błędów):
   $fl(fl(x + y) + z)$ i $fl(x + fl(y + z))$. \vspace{3mm}\\
   $fl(fl(x + y) + z) = fl((x + y)(1 + e_1) + z) =
@@ -257,7 +258,7 @@ plotdiag(x, y)
   pierwszego punktu, gdzie funkcja zbieża, a kolejne otrzymuje, porównując do
   już otrzymanych. Kiedy używamy pojedynczej precyzji, nie możemy wykryć
   niektrórych punktów, bo nie możemy rozróżnić dwóch bardzo bliskich siebie
-  punktów. Dla tego używając l.z. z podwójną precyzją dostajemy więcej
+  punktów. Dla tego, używając l.~z. z podwójną precyzją, dostajemy więcej
   punktów. \vspace{3mm}\\
   Liczba iteracji ($n$) potrzebnych do osiągnięcia zera dla $r = 4$ i
   różnych wartości $x_0$: \\
@@ -279,4 +280,5 @@ plotdiag(x, y)
   % TODO: dodaj interpretacje
 
 \end{document}
+\grid
 \grid
