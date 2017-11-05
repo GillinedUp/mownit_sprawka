@@ -20,6 +20,71 @@
   Arytmetyka Komputerowa \\ Sprawozdanie}
 \begin{document}
   \maketitle
+  \paragraph{Zadanie 1 Metoda Gaussa-Jordana}
+  \begin{Verbatim}
+      function b = GaussJordan(A, b)
+          [n,~] = size(A);
+          for k = 1:n
+              for i = k+1:n
+                  xmult = A(i,k)/A(k,k);
+                  for j = k+1:n
+                      A(i,j) = A(i,j) - xmult*A(k,j);
+                  end
+                  b(i) = b(i) - xmult*b(k);
+              end
+              for i = k-1:-1:1
+                  xmult = A(i,k)/A(k,k);
+                  for j = k+1:n
+                      A(i,j) = A(i,j) - xmult*A(k,j);
+                  end
+                  b(i) = b(i) - xmult*b(k);
+              end
+          end
+          for k = 1:n
+              b(k) = b(k)/A(k,k);
+          end
+      end
+  \end{Verbatim}
+  Metoda ta działa w podobny sposób do zwykłej metody Gaussa. Różni się głównie
+  tym, że w algorytmie Gaussa-Jordana eliminujemy elementy nie tylko "idąc w dół",
+  a i "idąć w górę". Inną cechą też jest dzielenie elementów $b_i$ przez
+  odpowiednie im elementy $A_{ii}$, gdzie $1 \leq i \leq n$.\newline
+  Dla sprawdzenia poprawności tej funkcji używam następującej funkcji:
+  \begin{Verbatim}
+      function a = CheckGaussJordan(A,b)
+          x = GaussJordan(A,b);
+          [~,n] = size(x);
+          a = true;
+          for i = 1:n
+              sum = 0;
+              for j = 1:n
+                  sum = sum + A(i,j)*x(j);
+              end
+              if abs(sum - b(i)) > 1e12*eps(min(abs(sum),abs(b(i))))
+                  disp(sum);
+                  disp(b(i));
+                  a = false;
+                  break
+              end
+          end
+      end
+  \end{Verbatim}
+Funkcja ta podstawia znalezione pierwiastki do równań i sprawdza czy nie ma
+sprzeczności.\newline
+Następną częścią tego zadania było porównanie szybkości działania napisanej
+oraz bibliotecznej funkcji dla macierzy rozmiaru $500 \times 500$. Niżej podaję
+wyniki dla pięciu różnych losowych macierzy:\newline
+\begin{tabularx}{\textwidth}{ l l }
+    Moja & Biblioteczna \\
+    0.805022 & 3.717958 \\
+    0.724206 & 3.734668 \\
+    0.717710 & 3.695297 \\
+    0.703726 & 3.708560 \\
+    0.690628 & 3.735460 \\
+\end{tabularx}\vspace{3mm}\newline
+To, że biblioteczna funkcja działa wolniej od napisanej przeze mnie można
+wyjaśnić tym faktem, że ta pierwsza prawdopodobnie sprawdza rozmiary macierzy,
+czy tą macierz da się obliczyć etc., czego nie robi moja funkcja.
   \paragraph{Zadanie 2 Faktoryzacja LU}%\mbox{}\vspace{3mm}\\
   \begin{Verbatim}
     function [p, A] = LU(A)
@@ -98,7 +163,7 @@
         a = true;
         for i = 1:n
             for j = 1:n
-                if abs(X(i,j)-Y(i,j)) > 1e4*eps(min(abs(X(i,j)),abs(Y(i,j))))
+                if abs(X(i,j)-Y(i,j)) > 1e12*eps(min(abs(X(i,j)),abs(Y(i,j))))
                     a = false;
                     break
                 end
